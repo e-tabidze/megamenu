@@ -1,0 +1,41 @@
+.megaMenuContainer {
+    width: fit-content;
+    height: fit-content;
+    background-color: #E3E3E3;
+    box-shadow: 12px 12px 15px 5px #a1a1a1;
+
+}
+
+.menuItem {
+    line-height: 25px;
+    padding: 10px;
+}
+
+.selected {
+    background-color: #ffffff;
+}
+
+.container {
+    padding: 0px 30px;
+    background-color: #ffffff;
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    &_block {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &_row {
+        margin: 30px;
+    }
+
+    &__menu {
+        width: 100%;
+    }
+
+    span {
+        padding: 5px;
+    }
+
+}

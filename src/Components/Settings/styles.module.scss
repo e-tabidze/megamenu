@@ -1,0 +1,16 @@
+.menuSettings {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.container {
+    &_header {
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        background-color: #6264A7;
+    }
+    &_settingsIcon {
+        width: 20px;
+    }
+}

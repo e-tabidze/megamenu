@@ -1,0 +1,26 @@
+.container {
+    height: 60px;
+    display: flex;
+    width: calc(100% - 60px);
+    justify-content: space-between;
+
+    &_leftNav {
+        display: flex;
+        width: 25%;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    &_rightNav {
+        display: flex;
+        width: 15%;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    &_icon {
+        width: 20px;
+    }
+}

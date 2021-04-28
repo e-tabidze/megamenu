@@ -1,0 +1,33 @@
+.container {
+    width: 100px;
+    height: 100%;
+    background-color: #EBEBEB;
+
+    span {
+        flex-direction: column;
+        margin: 10px;
+        color: red;
+    }
+
+    button {
+        height: 65px;
+    }
+
+
+    &_itemcontainer {
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &_icon {
+        width: 20px;
+        color: red;
+    }
+}
+
+li {
+    list-style: none;
+}
