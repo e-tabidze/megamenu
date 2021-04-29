@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import BottomMenuItem from "./BottomMenu.model";
 import { MenuIcon } from "@fluentui/react-icons-northstar";
-import { Menu, tabListBehavior, Text } from "@fluentui/react-northstar";
-import { useHistory } from "react-router-dom";
+import { Menu, tabListBehavior } from "@fluentui/react-northstar";
 import ReactMegaMenu from "react-mega-menu";
 import classes from "./styles.module.scss";
 

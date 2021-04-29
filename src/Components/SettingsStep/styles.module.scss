@@ -1,3 +1,39 @@
 .container {
-    width: 100%
+    display: flex;
+    flex-direction: column;
+    box-shadow: 12px 15px 5px #a1a1a1;
+    height: fit-content;
+    width: 900px;
+    padding: 30px;
+    margin-left: 20px;
+
+    p {
+        margin: 5px;
+        font-size: 15px;
+    }
+
+    h2 {
+        margin: 0px;
+    }
+
+    &_createEntry input {
+        width: 150px;
+        position: absolute;
+        top: -60px;
+    }
+
+
+    &_search input {
+        width: 300px;
+        margin-left: 20px;
+    }
+
+    &_titleRendered {
+        display: flex;
+    }
+
+
+    &_icon {
+        width: 15px;
+    }
 }

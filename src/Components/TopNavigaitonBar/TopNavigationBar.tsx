@@ -12,6 +12,7 @@ import {
 } from "@fluentui/react-icons-northstar";
 import BottomMenu from "../BottomMenu/BottomMenu";
 import Settings from "../Settings/Settings";
+import classes from "./styles.module.scss";
 
 import "office-ui-fabric-react/dist/css/fabric.css";
 
@@ -29,17 +30,16 @@ const TopNavigationbar = () => {
     setSettingsActive(!settingsActive);
   };
 
-  const handleClick = (path: string) => {
-    history.push("/");
-    console.log("link");
+  const handleClick = () => {
+    window.location.reload(false);
   };
-  const history = useHistory();
+
   const itemsTest: TopNavigationbarProps[] = [
     {
       key: "Intranet",
       content: "Intranet",
       icon: <SearchIcon />,
-      onClick: () => handleClick("/"),
+      onClick: () => handleClick(),
     },
     {
       key: "Dashboard",
@@ -54,29 +54,29 @@ const TopNavigationbar = () => {
     {
       key: "add",
       icon: <AddIcon />,
-      onClick: () => handleClick("/"),
+      onClick: () => handleClick(),
     },
-    {
-      key: "add",
-      icon: <MoreIcon />,
-      onClick: () => handleClick("/"),
-    },
-    {
-      key: "question",
-      icon: <ExclamationCircleIcon />,
-      onClick: () => handleClick("/"),
-    },
-    {
-      key: "meet",
-      content: "Meet",
-      onClick: () => handleClick("/"),
-      icon: <CallVideoIcon />,
-    },
-    {
-      key: "meet",
-      onClick: () => handleClick("/"),
-      icon: <ChevronDownIcon />,
-    },
+    // {
+    //   key: "add",
+    //   icon: <MoreIcon />,
+    //   onClick: () => handleClick("/"),
+    // },
+    // {
+    //   key: "question",
+    //   icon: <ExclamationCircleIcon />,
+    //   onClick: () => handleClick("/"),
+    // },
+    // {
+    //   key: "meet",
+    //   content: "Meet",
+    //   onClick: () => handleClick("/"),
+    //   icon: <CallVideoIcon />,
+    // },
+    // {
+    //   key: "meet",
+    //   onClick: () => handleClick("/"),
+    //   icon: <ChevronDownIcon />,
+    // },
   ];
 
   return (
@@ -87,6 +87,7 @@ const TopNavigationbar = () => {
         underlined
         primary
         accessibility={tabListBehavior}
+        style={{ height: "70px", alignItems: "center" }}
         aria-label="Nav"
       />
       {dashbboardActive && <BottomMenu />}

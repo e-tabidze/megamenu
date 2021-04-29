@@ -4,6 +4,10 @@
     width: calc(100% - 60px);
     justify-content: space-between;
 
+    &_topNavbar ul {
+        height: 200px;
+    }
+
     &_leftNav {
         display: flex;
         width: 25%;

@@ -1,16 +1,27 @@
-.menuSettings {
-    font-size: 20px;
-    font-weight: 700;
-}
-
 .container {
-    &_header {
-        height: 15px;
-        width: 15px;
-        border-radius: 50%;
-        background-color: #6264A7;
+    display: flex;
+
+    &_sectionHeader {
+        align-items: center;
     }
+
+    &_number {
+        width: 25px;
+        height: 25px;
+        background-color: #676AAA;
+        border-radius: 50%;
+        margin-right: 15px;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
+    }
+
     &_settingsIcon {
         width: 20px;
+        margin-right: 15px;
+        margin-left: 25px;
+        color: #F5F5F5;
     }
 }
