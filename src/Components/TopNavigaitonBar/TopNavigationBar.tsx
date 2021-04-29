@@ -1,19 +1,12 @@
 import React, { useState } from "react";
 import TopNavigationbarProps from "./TopNavigationBar.model";
 import { Menu, tabListBehavior } from "@fluentui/react-northstar";
-import { useHistory } from "react-router-dom";
 import {
   AddIcon,
-  MoreIcon,
-  ExclamationCircleIcon,
-  CallVideoIcon,
   SearchIcon,
-  ChevronDownIcon,
 } from "@fluentui/react-icons-northstar";
 import BottomMenu from "../BottomMenu/BottomMenu";
 import Settings from "../Settings/Settings";
-import classes from "./styles.module.scss";
-
 import "office-ui-fabric-react/dist/css/fabric.css";
 
 const TopNavigationbar = () => {
