@@ -56,27 +56,6 @@ const TopNavigationbar = () => {
       icon: <AddIcon />,
       onClick: () => handleClick(),
     },
-    // {
-    //   key: "add",
-    //   icon: <MoreIcon />,
-    //   onClick: () => handleClick("/"),
-    // },
-    // {
-    //   key: "question",
-    //   icon: <ExclamationCircleIcon />,
-    //   onClick: () => handleClick("/"),
-    // },
-    // {
-    //   key: "meet",
-    //   content: "Meet",
-    //   onClick: () => handleClick("/"),
-    //   icon: <CallVideoIcon />,
-    // },
-    // {
-    //   key: "meet",
-    //   onClick: () => handleClick("/"),
-    //   icon: <ChevronDownIcon />,
-    // },
   ];
 
   return (
