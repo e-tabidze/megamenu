@@ -4,7 +4,7 @@ import { Text, Header, Flex } from "@fluentui/react-northstar";
 import SettingsStep from "../SettingsStep/SettingsStep";
 import classes from "./styles.module.scss";
 
-const Settings = () => {
+const Settings = ({handleGetMenuItems}) => {
   const [settingsStepActive, setSettingsStepActive] = useState(false);
 
   return (
@@ -49,7 +49,7 @@ const Settings = () => {
           <Text content="Step 3" />
         </Flex>
       </div>
-      {settingsStepActive && <SettingsStep />}
+      {settingsStepActive && <SettingsStep handleGetMenuItems={handleGetMenuItems} />}
     </div>
   );
 };

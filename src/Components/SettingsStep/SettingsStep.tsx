@@ -9,144 +9,52 @@ import {
   Tree,
   Flex,
 } from "@fluentui/react-northstar";
+import INavbarItems from "./SettingsStep.model";
 import classes from "./styles.module.scss";
 
-const items = [
-  {
-    id: "tree-title-customization-item-1",
-    title: "Navigation Item 1",
-    items: [
-      {
-        id: "tree-title-customization-item-2",
-        title: "Sub Navigation Item 1",
-        items: [
-          {
-            id: "tree-title-customization-item-3",
-            title: "Sub Sub Navigation Item 1",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: "tree-title-customization-item-4",
-    title: "Navigation Item 2",
-    items: [
-      {
-        id: "tree-title-customization-item-5",
-        title: "Sub Navigation Item 1",
-        items: [
-          {
-            id: "tree-title-customization-item-6",
-            title: "Sub Sub Navigation Item 1",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: "tree-title-customization-item-7",
-    title: "Navigation Item 3",
-    items: [
-      {
-        id: "tree-title-customization-item-8",
-        title: "Sub Navigation Item 4",
-        items: [
-          {
-            id: "tree-title-customization-item-9",
-            title: "Sub Sub Navigation Item 1",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: "tree-title-customization-item-10",
-    title: "Navigation Item 5",
-    items: [
-      {
-        id: "tree-title-customization-item-11",
-        title: "Sub Navigation Item 1",
-        items: [
-          {
-            id: "tree-title-customization-item-12",
-            title: "Sub Sub Navigation Item 1",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: "tree-title-customization-item-13",
-    title: "Navigation Item 6",
-    items: [
-      {
-        id: "tree-title-customization-item-14",
-        title: "Sub Navigation Item 1",
-        items: [
-          {
-            id: "tree-title-customization-item-15",
-            title: "Sub Sub Navigation Item 1",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: "tree-title-customization-item-16",
-    title: "Navigation Item 1",
-    items: [
-      {
-        id: "tree-title-customization-item-17",
-        title: "Sub Navigation Item 1",
-        items: [
-          {
-            id: "tree-title-customization-item-18",
-            title: "Sub Sub Navigation Item 1",
-          },
-        ],
-      },
-    ],
-  },
-];
-
-const SettingsStep = () => {
+const SettingsStep = ({handleGetMenuItems}) => {
   const [createEntry, setCreateEntry] = useState(false);
   const [settingsMenu, setSettingsMenu] = useState(true);
-  const [navItems, setNavItems] = useState([]);
+  const [navItems, setNavItems] = useState<INavbarItems[]>([]);
   const [newEntry, setNewEntry] = useState("");
 
-  const createNewEntry = (e) => {
-    let newItem = {
-      id: `Navigation Item ${items.length + 1}`,
-      title: newEntry,
-    };
-    setNavItems((prevstate) => [...prevstate, newItem]);
-    localStorage.setItem("newItem", newItem.title);
-  };
+  useEffect(() => {
+    let navData;
+    navData = localStorage.getItem("navItems");
+    setNavItems(JSON.parse(navData));
+  }, []);
 
   const handleChange = (e) => {
     setNewEntry(e.target.value);
   };
 
-  const newItem = localStorage.getItem("newItem");
-  items.push(newItem);
-  console.log(items);
+  const createNewEntry = () => {
+    let newEntryItem = {
+      id: `tree-title-customization-item-${navItems.length + 1}`,
+      key: `tree-title-customization-item-${navItems.length + 1}`,
+      title: newEntry,
+      content: newEntry
+    };
+    setNavItems((prevstate) => [...prevstate, newEntryItem]);
+  };
 
-  useEffect(() => {
-    setNavItems(items);
-  }, []);
+  const handleSave = () => {
+    localStorage.setItem("navItems", JSON.stringify(navItems));
+    handleGetMenuItems();
+  };
 
   const handleSearch = (e) => {
-    let filtered = items.filter((item) => {
+    let navData;
+    navData = localStorage.getItem("navItems");
+    let filtered = navData.filter((item) => {
       return item.title.includes(e.target.value);
     });
     setNavItems(filtered);
   };
 
   const titleRenderer = (
-    Component,
-    { content, expanded, open, hasSubtree, ...restProps }
+    Component: any,
+    { content, expanded, open, hasSubtree, ...restProps }: any
   ) => (
     <Component
       expanded={expanded}
@@ -194,6 +102,12 @@ const SettingsStep = () => {
                 className={classes.container_createEntry}
                 placeholder="Create New Entry"
                 onChange={handleChange}
+                icon={
+                  <SearchIcon
+                    className={classes.container_icon}
+                    onClick={createNewEntry}
+                  />
+                }
               />
             )}
             <Button
@@ -227,7 +141,7 @@ const SettingsStep = () => {
               content="Save"
               primary
               style={{ margin: "5px" }}
-              onClick={createNewEntry}
+              onClick={handleSave}
             />
           </Flex>
         </div>

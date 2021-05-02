@@ -5,9 +5,8 @@ import { Menu, tabListBehavior } from "@fluentui/react-northstar";
 import ReactMegaMenu from "react-mega-menu";
 import classes from "./styles.module.scss";
 
-const BottomMenu = () => {
+const BottomMenu = ({ menuItems }) => {
   const [menuActive, setMenuActive] = useState(false);
-
   const styleConfig = {
     containerProps: { className: classes.megaMenuContainer },
     menuItemProps: { className: classes.menuItem },
@@ -63,40 +62,12 @@ const BottomMenu = () => {
     </div>
   );
 
-  const bottomMenuItems: BottomMenuItem[] = [
-    {
-      key: "MenuItem1",
-      content: "MenuItem1",
-      icon: <MenuIcon />,
-      onMouseEnter: () => setMenuActive(!menuActive),
-    },
-    {
-      key: "MenuItem2",
-      content: "MenuItem2",
-      onMouseEnter: () => setMenuActive(!menuActive),
-    },
-    {
-      key: "MenuItem3",
-      content: "MenuItem3",
-      onMouseEnter: () => setMenuActive(!menuActive),
-    },
-    {
-      key: "MenuItem4",
-      content: "MenuItem4",
-      onMouseEnter: () => setMenuActive(!menuActive),
-    },
-    {
-      key: "MenuItem5",
-      content: "MenuItem5",
-      onMouseEnter: () => setMenuActive(!menuActive),
-    },
-  ];
   return (
     <>
       <Menu
         defaultActiveIndex={0}
         className={classes.container_menu}
-        items={bottomMenuItems}
+        items={menuItems}
         underlined
         primary
         accessibility={tabListBehavior}

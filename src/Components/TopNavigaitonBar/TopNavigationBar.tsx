@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import TopNavigationbarProps from "./TopNavigationBar.model";
 import { Menu, tabListBehavior } from "@fluentui/react-northstar";
-import {
-  AddIcon,
-  SearchIcon,
-} from "@fluentui/react-icons-northstar";
+import { AddIcon, SearchIcon } from "@fluentui/react-icons-northstar";
 import BottomMenu from "../BottomMenu/BottomMenu";
 import Settings from "../Settings/Settings";
 import "office-ui-fabric-react/dist/css/fabric.css";
 
-const TopNavigationbar = () => {
+const TopNavigationbar = ({ menuItems, handleGetMenuItems }) => {
   const [dashbboardActive, setDashboardActive] = useState(false);
   const [settingsActive, setSettingsActive] = useState(false);
 
@@ -62,8 +59,8 @@ const TopNavigationbar = () => {
         style={{ height: "70px", alignItems: "center" }}
         aria-label="Nav"
       />
-      {dashbboardActive && <BottomMenu />}
-      {settingsActive && !dashbboardActive && <Settings />}
+      {dashbboardActive && <BottomMenu menuItems={menuItems} />}
+      {settingsActive && !dashbboardActive && <Settings handleGetMenuItems={handleGetMenuItems} />}
     </>
   );
 };
