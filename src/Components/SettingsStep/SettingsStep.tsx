@@ -6,13 +6,14 @@ import {
   TriangleDownIcon,
   TriangleEndIcon,
   SearchIcon,
+  AcceptIcon,
   Tree,
   Flex,
 } from "@fluentui/react-northstar";
 import INavbarItems from "./SettingsStep.model";
 import classes from "./styles.module.scss";
 
-const SettingsStep = ({handleGetMenuItems}) => {
+const SettingsStep = ({ handleGetMenuItems }) => {
   const [createEntry, setCreateEntry] = useState(false);
   const [settingsMenu, setSettingsMenu] = useState(true);
   const [navItems, setNavItems] = useState<INavbarItems[]>([]);
@@ -33,7 +34,7 @@ const SettingsStep = ({handleGetMenuItems}) => {
       id: `tree-title-customization-item-${navItems.length + 1}`,
       key: `tree-title-customization-item-${navItems.length + 1}`,
       title: newEntry,
-      content: newEntry
+      content: newEntry,
     };
     setNavItems((prevstate) => [...prevstate, newEntryItem]);
   };
@@ -41,6 +42,7 @@ const SettingsStep = ({handleGetMenuItems}) => {
   const handleSave = () => {
     localStorage.setItem("navItems", JSON.stringify(navItems));
     handleGetMenuItems();
+    setSettingsMenu(false);
   };
 
   const handleSearch = (e) => {
@@ -103,7 +105,7 @@ const SettingsStep = ({handleGetMenuItems}) => {
                 placeholder="Create New Entry"
                 onChange={handleChange}
                 icon={
-                  <SearchIcon
+                  <AcceptIcon
                     className={classes.container_icon}
                     onClick={createNewEntry}
                   />
