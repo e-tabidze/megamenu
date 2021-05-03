@@ -132,6 +132,8 @@ function App() {
         .then(() => {
           handleGetMenuItems();
         });
+    } else {
+      handleGetMenuItems();
     }
   };
 
