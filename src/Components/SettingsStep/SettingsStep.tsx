@@ -25,11 +25,16 @@ const SettingsStep = ({ handleGetMenuItems }) => {
     setNavItems(JSON.parse(navData));
   }, []);
 
+  useEffect(() => {
+    console.log(navItems, "<==== NAV ITEMS")
+  },[navItems])
+
   const handleChange = (e) => {
     setNewEntry(e.target.value);
   };
 
   const createNewEntry = () => {
+    console.log(navItems.length, "<===== ID")
     let newEntryItem = {
       id: `tree-title-customization-item-${navItems.length + 1}`,
       key: `tree-title-customization-item-${navItems.length + 1}`,
